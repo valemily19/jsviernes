@@ -1,0 +1,15 @@
+meta {
+  name: borrar los empresarios
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:3010/empresario/20
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Consulta a todos los empresarios
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3010/empresario
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
