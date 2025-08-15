@@ -14,12 +14,12 @@ export class EmpresarioController {
 
   @Get()
   findAll() {
-    return `Aqui se van a consultar todos los empresarios`;
+    return this.empresarioService.findAll()
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return `Aqui se va a consultar un empresario con id ${id}`;
+    return this.empresarioService.findOne(+id);
   }
 
   @Patch(':id')
@@ -29,6 +29,11 @@ export class EmpresarioController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return `Aqui se va a eliminar un empresario con id ${id}`;
+    this.empresarioService.remove(+id);
+    return{
+      success : true,
+      carro_eliminado: id
+    }
+
   }
 }
