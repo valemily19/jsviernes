@@ -14,7 +14,7 @@ export class ReseñasController {
 
   @Get()
   findAll() {
-    return "aqui se van a consultar todas las reseñas";
+    return this.reseñasService.findAll();
   }
 
   @Get(':id')
