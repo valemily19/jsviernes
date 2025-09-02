@@ -14,24 +14,32 @@ export class ReseñasService {
 
 
   create(createReseñaDto: CreateReseñaDto) {
-    return 'This action adds a new marca';
+    // Implementación real para crear una reseña
+    return this.service.resenas.create({ data: createReseñaDto });
   }
 
   findAll() {
-    return this.service.lugar.findMany()
+    return this.service.resenas.findMany();
   }
 
   findOne(id: number) {
-    return this.service.lugar.findFirst({
-      where: {id:id}
-    })
+    return this.service.resenas.findUnique({
+      where: { id },
+    });
   }
 
-  update(id: number, CreateReseñaDto: CreateReseñaDto) {
-    return `This action updates a #${id} marca`;
+  update(id: number, updateReseñaDto: UpdateReseñaDto) {
+    // Implementación real para actualizar una reseña
+    return this.service.resenas.update({
+      where: { id },
+      data: updateReseñaDto,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} marca`;
+    // Implementación real para eliminar una reseña
+    return this.service.resenas.delete({
+      where: { id },
+    });
   }
 }
