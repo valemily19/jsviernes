@@ -14,7 +14,12 @@ export class ReseñasService {
 
 
   create(createReseñaDto: CreateReseñaDto) {
-    // Implementación real para crear una reseña
+    // Validación simple y mensaje personalizado
+    if (!createReseñaDto.comentario_resenia || !createReseñaDto.Fecha_resenia || !createReseñaDto.empresario_id) {
+      return { error: 'Todos los campos son obligatorios: comentario_resenia, Fecha_resenia, empresario_id' };
+    }
+    // Mensaje de registro
+    console.log('Registrando reseña:', createReseñaDto);
     return this.service.resenas.create({ data: createReseñaDto });
   }
 
