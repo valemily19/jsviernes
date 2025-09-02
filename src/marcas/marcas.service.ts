@@ -14,24 +14,29 @@ export class MarcasService {
 
 
   create(createMarcaDto: CreateMarcaDto) {
-    return 'This action adds a new marca';
+    return this.service.marcas.create({ data: createMarcaDto });
   }
 
   findAll() {
-    return this.service.marcas.findMany()
+    return this.service.marcas.findMany();
   }
 
   findOne(id: number) {
-    return  this.service.marcas.findFirst({
-      where: {id : id}
-    })
+    return this.service.marcas.findUnique({
+      where: { id },
+    });
   }
 
   update(id: number, updateMarcaDto: UpdateMarcaDto) {
-    return `This action updates a #${id} marca`;
+    return this.service.marcas.update({
+      where: { id },
+      data: updateMarcaDto,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} marca`;
+    return this.service.marcas.delete({
+      where: { id },
+    });
   }
 }
